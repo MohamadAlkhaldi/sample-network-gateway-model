@@ -4,7 +4,7 @@
 
 # Tear down running network
 
-docker-compose -f docker-compose.yml -f docker-compose-ca.yml down --volumes --remove-orphans
+docker-compose -f docker-compose.yml  down --volumes --remove-orphans
   # Don't remove the generated artifacts -- note, the ledgers are always removed
   
     # Bring down the network, deleting the volumes

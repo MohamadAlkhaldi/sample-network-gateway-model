@@ -12,7 +12,7 @@ import (
 	"github.com/hyperledger/fabric-sdk-go/pkg/gateway"
 )
 
-func main() {
+func mainn() {
 	log.Println("============ application-golang starts ============")
 
 	err := os.Setenv("DISCOVERY_AS_LOCALHOST", "true")
@@ -58,24 +58,10 @@ func main() {
 
 	contract := network.GetContract("my-chaincode")
 
-	log.Println("--> Submit Transaction: Init")
-	result, err := contract.SubmitTransaction("Init")
-	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
-	}
-	log.Println(string(result))
-
 	log.Println("--> Evaluate Transaction: GetAllAssets")
-	result, err = contract.EvaluateTransaction("GetAllAssets")
+	result, err := contract.EvaluateTransaction("GetAllAssets")
 	if err != nil {
 		log.Fatalf("Failed to evaluate transaction: %v", err)
-	}
-	log.Println(string(result))
-
-	log.Println("--> Submit Transaction: CreateAsset, creates new asset with ID, color, owner, size, and appraisedValue arguments")
-	result, err = contract.SubmitTransaction("CreateAsset", "6", "Tom")
-	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
 	}
 	log.Println(string(result))
 
@@ -108,7 +94,7 @@ func main() {
 	log.Println("============ application-golang ends ============")
 }
 
-func populateWallet(wallet *gateway.Wallet) error {
+func populateWallett(wallet *gateway.Wallet) error {
 	log.Println("============ Populating wallet ============")
 	credPath := filepath.Join(
 		"..",

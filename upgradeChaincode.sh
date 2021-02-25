@@ -54,8 +54,7 @@ done
 
 
 
-scripts/deployCC.sh mychannel $CC_NAME $CC_SRC_PATH $CC_SRC_LANGUAGE 
-
+scripts/upgradeCC.sh mychannel $CC_NAME $CC_SRC_PATH $CC_SRC_LANGUAGE $CC_VERSION $CC_SEQUENCE $CC_INIT_FCN 
 if [ $? -ne 0 ]; then
   fatalln "Deploying chaincode failed"
 fi

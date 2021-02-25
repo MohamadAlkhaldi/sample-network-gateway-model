@@ -1,5 +1,5 @@
-module asset-transfer-basic
+module my-application.go
 
-go 1.14
+go 1.15
 
-require github.com/hyperledger/fabric-sdk-go v1.0.0-rc1
+require github.com/hyperledger/fabric-sdk-go v1.0.0
