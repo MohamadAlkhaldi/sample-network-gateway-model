@@ -1,13 +1,15 @@
-### Set path to fabric binaries and config directories
+## Set path to fabric binaries (v2.2.1) and config directories
 At sample-network-gateway-model, 
 
-files start.sh, createChannel.sh, deployChaincode.sh and upgradeChaincode.sh, change:
+In files start.sh, createChannel.sh, deployChaincode.sh and upgradeChaincode.sh, change:
 > export HF_CONFIG=/home/mohamadlocal/fabric-samples/config/
+
 > export HF_BIN=/home/mohamadlocal/fabric-samples/bin/
 to the right path
 
 Note: config/ is where core.yaml is located
 
+## Steps to test the network
 
 ### 1. Generate crypto materials and artifacts and start containers
 At sample-network-gateway-model, run:
