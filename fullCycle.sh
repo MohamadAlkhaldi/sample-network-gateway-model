@@ -5,11 +5,11 @@
 
 ### Create channel
 
-./createChannel.sh -c mychannel
+./createChannel.sh
 
 ### Deploy smart contract
 
-./deploycc.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
+./deployChaincode.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
 
 ### Run test application 
 cd my-application

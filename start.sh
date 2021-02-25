@@ -1,8 +1,10 @@
 #!/bin/bash
+export HF_BIN=/home/mohamadlocal/fabric-samples/bin/
 
-export PATH=${PWD}/../fabric-samples/bin:$PATH
+export PATH=$HF_BIN:$PATH
 export FABRIC_CFG_PATH=${PWD}
 export VERBOSE=false
+
 
 . scripts/utils.sh
 

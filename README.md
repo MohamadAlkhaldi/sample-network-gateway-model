@@ -1,3 +1,13 @@
+### Set path to fabric binaries and config directories
+At sample-network-gateway-model, 
+
+files start.sh, createChannel.sh, deployChaincode.sh and upgradeChaincode.sh, change:
+> export HF_CONFIG=/home/mohamadlocal/fabric-samples/config/
+> export HF_BIN=/home/mohamadlocal/fabric-samples/bin/
+to the right path
+
+Note: config/ is where core.yaml is located
+
 
 ### 1. Generate crypto materials and artifacts and start containers
 At sample-network-gateway-model, run:
@@ -7,11 +17,11 @@ At sample-network-gateway-model, run:
 ### 2. Create channel
 At sample-network-gateway-model, run:
 
-> ./createChannel.sh -c mychannel
+> ./createChannel.sh
 
 ### 3. Deploy smart contract
 At sample-network-gateway-model, run:
-> ./deploycc.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
+> ./deployChaincode.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
 
 ### 4. Run test application 
 At my-application, run
@@ -32,6 +42,6 @@ At my-application
 Should complete successfully
 
 
-### To stop containers and remove artifacts
+### To stop and remove containers, and remove artifacts
 At sample-network-gateway-model, run:
 > ./stop.sh
