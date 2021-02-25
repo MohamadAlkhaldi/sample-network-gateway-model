@@ -58,38 +58,10 @@ func main() {
 
 	contract := network.GetContract("my-chaincode")
 
-	log.Println("--> Submit Transaction: Init")
-	result, err := contract.SubmitTransaction("Init")
-	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
-	}
-	log.Println(string(result))
-
 	log.Println("--> Evaluate Transaction: GetAllAssets")
-	result, err = contract.EvaluateTransaction("GetAllAssets")
+	result, err := contract.EvaluateTransaction("GetAllAssets")
 	if err != nil {
 		log.Fatalf("Failed to evaluate transaction: %v", err)
-	}
-	log.Println(string(result))
-
-	log.Println("--> Submit Transaction: CreateAsset, creates new asset with ID, color, owner, size, and appraisedValue arguments")
-	result, err = contract.SubmitTransaction("CreateAsset", "6", "Tom")
-	if err != nil {
-		log.Fatalf("Failed to Submit transaction: %v", err)
-	}
-	log.Println(string(result))
-
-	log.Println("--> Evaluate Transaction: ReadAsset, function returns an asset with a given assetID")
-	result, err = contract.EvaluateTransaction("ReadAsset", "6")
-	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v\n", err)
-	}
-	log.Println(string(result))
-
-	log.Println("--> Evaluate Transaction: AssetExists, function returns 'true' if an asset with given assetID exist")
-	result, err = contract.EvaluateTransaction("AssetExists", "6")
-	if err != nil {
-		log.Fatalf("Failed to evaluate transaction: %v\n", err)
 	}
 	log.Println(string(result))
 
@@ -98,6 +70,13 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to Submit transaction: %v", err)
 	}
+
+	log.Println("--> Evaluate Transaction: AssetExists, function returns 'true' if an asset with given assetID exist")
+	result, err = contract.EvaluateTransaction("AssetExists", "1")
+	if err != nil {
+		log.Fatalf("Failed to evaluate transaction: %v\n", err)
+	}
+	log.Println(string(result))
 
 	log.Println("--> Evaluate Transaction: ReadAsset, function returns 'asset1' attributes")
 	result, err = contract.EvaluateTransaction("ReadAsset", "1")

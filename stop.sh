@@ -4,6 +4,8 @@
 
 # Tear down running network
 
+rm -rf my-application/wallet/ my-application/keystore/
+
 docker-compose -f docker-compose.yml  down --volumes --remove-orphans
   # Don't remove the generated artifacts -- note, the ledgers are always removed
   

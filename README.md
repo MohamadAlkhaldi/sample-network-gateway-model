@@ -1,19 +1,37 @@
 
-### Generate crypto materials and artifacts and start containers
-cd my-network
-./start.up
+### 1. Generate crypto materials and artifacts and start containers
+At sample-network-gateway-model, run:
 
-### Create channel
-cd my-network
-./createChannel.sh -c my channel
+> ./start.sh
 
-### Deploy smart contract
-cd my-network
-./deploycc.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
+### 2. Create channel
+At sample-network-gateway-model, run:
 
-### Run test application 
-cd my-application
-go run my-application.go
+> ./createChannel.sh -c mychannel
+
+### 3. Deploy smart contract
+At sample-network-gateway-model, run:
+> ./deploycc.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go
+
+### 4. Run test application 
+At my-application, run
+> go run my-application.go
+
+Will fail at Submit Transaction: TransferAsset asset1
+because chaincode was not initialized
+
+### 5. Upgrade smart contract and add the init function name
+At sample-network-gateway-model, run:
+> ./upgradeChaincode.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go -ccv 1.0 -ccs 2 -cci Init
+
+### 6. Run test application again
+At my-application
+
+> go run my-application.go
+
+Should complete successfully
 
 
-./upgradeChaincode.sh -ccn my-chaincode -ccp ./my-chaincode/ -ccl go -ccv 1.0 -ccs 2 -cci Init
+### To stop containers and remove artifacts
+At sample-network-gateway-model, run:
+> ./stop.sh
