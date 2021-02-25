@@ -1,0 +1,7 @@
+channel-cc-service
+!system-genesis-block/.gitkeep
+my-application/keystore
+my-application/wallet
+my-chaincode/vendor
+organizations/peerOrganizations
+organizations/ordererOrganizations
