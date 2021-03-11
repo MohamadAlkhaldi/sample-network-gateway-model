@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -48,8 +47,6 @@ func main() {
 		log.Fatalf("Failed to connect to gateway: %v", err)
 	}
 	defer gw.Close()
-
-	log.Println("All good")
 
 	network, err := gw.GetNetwork("mychannel")
 	if err != nil {

@@ -272,16 +272,30 @@ queryInstalled 1
 ## approve the definition for org1
 approveForMyOrg 1
 
+## Install chaincode on peer0.org2 and peer0.org2
+infoln "Installing chaincode on peer0.org2..."
+installChaincode 2
+
+## query whether the chaincode is installed
+queryInstalled 2
+
+## approve the definition for org2
+approveForMyOrg 2
+
 ## check whether the chaincode definition is ready to be committed
-## expect org1 to have approved
+## expect org1 and org2 to have approved
 checkCommitReadiness 1 "\"Org1MSP\": true" 
 
 
-## now that we know for sure org has approved, commit the definition
-commitChaincodeDefinition 1
+checkCommitReadiness 2 "\"Org1MSP\": true" 
+
+
+## now that we know for sure orgs has approved, commit the definition
+commitChaincodeDefinition 1 2
 
 ## query to see that the definition committed successfully
 queryCommitted 1
+queryCommitted 2
 
 ## Invoke the chaincode - this does require that the chaincode have the 'init'
 ## method defined

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 . scripts/envVar.sh
-. ./utils.sh
+. scripts/utils.sh
 
 CHANNEL_NAME="$1"
 DELAY="$2"
@@ -18,7 +18,7 @@ fi
 
 createChannelTx() {
 	set -x
-	configtxgen -profile OneOrgChannel -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
+	configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./channel-artifacts/${CHANNEL_NAME}.tx -channelID $CHANNEL_NAME
 	res=$?
 	{ set +x; } 2>/dev/null
 #   verifyResult $res "Failed to generate channel configuration transaction..."
@@ -86,8 +86,14 @@ successln "Channel '$CHANNEL_NAME' created"
 infoln "Joining org1 peer to the channel..."
 joinChannel 1
 
+infoln "Joining org2 peer to the channel..."
+joinChannel 2
+
 ## Set the anchor peers for each org in the channel
 infoln "Setting anchor peer for org1..."
 setAnchorPeer 1
+
+infoln "Setting anchor peer for org1..."
+setAnchorPeer 2
 
 successln "Channel '$CHANNEL_NAME' joined"
