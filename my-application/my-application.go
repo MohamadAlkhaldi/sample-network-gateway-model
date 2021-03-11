@@ -48,6 +48,8 @@ func main() {
 	}
 	defer gw.Close()
 
+	log.Println("All good")
+
 	network, err := gw.GetNetwork("mychannel")
 	if err != nil {
 		log.Fatalf("Failed to get network: %v", err)
